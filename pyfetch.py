@@ -38,7 +38,10 @@ def fetch_info(st):
     os_id = distro.LinuxDistribution().id()
     # os_id = "mint"
 
-    decor = dd.distros[os_id]
+    try:
+        decor = dd.distros[os_id]
+    except KeyError:
+        decor = dd.distros["other"]
     dcolor = dd.colors
     dcolors = decor["colors"]
 
