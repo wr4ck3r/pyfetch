@@ -17,7 +17,7 @@ distros = {
             fg(144, 181, 240), #logo color
         ],
     },
-    "mint": {
+    "linuxmint": {
         "logo": r"""▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄   CPU
 ▀▀█  █        █   RAM
   █  █  █  █  █   Resolution
@@ -32,11 +32,11 @@ distros = {
         ],
     },
     "other": {
-        "logo": r"""    .--.   CPU
-   |o_o |   RAM
-   |:_/ |   Resolution
-  //   \ \   Uptime
- (|     | )   OS
+        "logo": r"""   .--.   CPU
+   |o_o |  RAM
+   |:_/ |  Resolution
+  //   \ \  Uptime
+ (|     | )  OS
 /'\_   _/`\
 \___)=(___/""",
         "colors": (
