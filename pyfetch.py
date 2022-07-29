@@ -1,16 +1,19 @@
 #!/usr/bin/env python
-from datetime import datetime
-
-start_time = datetime.now()
 
 import psutil
-import distro
 
 from modules import distro_decorations as dd
+
 from datetime import timedelta
+from datetime import datetime
+
 from screeninfo import get_monitors
+
 from time import sleep
 
+from distro import LinuxDistribution
+
+from GPUtil import getGPUs
 
 def format_info(parameter, value, colors):
     pcolor, vcolor, bold, fgreset, boldreset = (
@@ -25,18 +28,10 @@ def format_info(parameter, value, colors):
     )
     return formatted_string
 
+def fetch_info():
 
-def lprint(text):
-    for line in text.split("\n"):
-        print(line)
-        sleep(0.1)
-
-
-def fetch_info(st):
-
-    os_name = distro.LinuxDistribution()._os_release_info["name"]
-    os_id = distro.LinuxDistribution().id()
-    # os_id = "mint"
+    os_name = LinuxDistribution()._os_release_info["name"]
+    os_id = LinuxDistribution().id()
 
     try:
         decor = dd.distros[os_id]
@@ -52,6 +47,7 @@ def fetch_info(st):
         resolutions = ""
         for m in monitors():
             resolutions += f"{m.width}x{m.height} @ "
+        resolutions = resolutions[:-3]
     else:
         resolutions = f"{monitors[0].width}x{monitors[0].height}   "
 
@@ -78,13 +74,8 @@ def fetch_info(st):
         )
         for line in logo:
             logo[logo.index(line)] = line.replace(param, specs) + logo_color
-    fetched_in = datetime.now() - start_time
 
     logo = "\n".join(logo)
-    lprint(logo)
-    print(
-        f"Fetched in {fetched_in.seconds}.{str(fetched_in.microseconds)[:-3]} seconds"
-    )
+    print(logo)
 
-
-fetch_info(start_time)
+fetch_info()

@@ -1,3 +1,4 @@
+from re import S
 from sty import fg, bg, ef, rs
 
 colors = {"fr": fg.rs, "br": bg.rs, "eb": ef.bold, "rb": rs.bold_dim}
@@ -17,12 +18,25 @@ distros = {
             fg(144, 181, 240), #logo color
         ],
     },
+    "gentoo": {
+        "logo": r"""  _----_  OS
+(      \\  CPU
+\\   0   \\  RAM
+ \\       )  Resolution
+ /     _/  Uptime
+ \\___-""",
+        "colors": [
+            fg(159, 132, 240),
+            fg(200, 190, 230),
+            fg(84, 72, 122),
+        ]
+    },
     "linuxmint": {
-        "logo": r"""▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄   CPU
-▀▀█  █        █   RAM
+        "logo": r"""▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄   OS
+▀▀█  █        █   CPU
+  █  █  █  █  █   RAM
   █  █  █  █  █   Resolution
-  █  █  █  █  █   Uptime
-  █  ▀▀▀▀▀▀▀  █   OS
+  █  ▀▀▀▀▀▀▀  █   Uptime
   ▀▀▀▀▀▀▀▀▀▀▀▀▀
 """,
         "colors": [
@@ -32,17 +46,18 @@ distros = {
         ],
     },
     "other": {
-        "logo": r"""   .--.   CPU
-   |o_o |  RAM
-   |:_/ |  Resolution
-  //   \ \  Uptime
- (|     | )  OS
-/'\_   _/`\
-\___)=(___/""",
-        "colors": (
+        "logo": r"""   .--.
+   |o_o |
+   |:_/ |  CPU
+  //   \ \  RAM
+ (|     | )  Resolution
+/'\_   _/`\  Uptime
+\___)=(___/
+  OS""",
+"colors": (
             fg(204, 241, 255),
             fg(247, 251, 252),
-            fg(209, 246, 255)
+            fg(209, 246, 255),
         ),
-    }
+    },
 }
