@@ -29,7 +29,7 @@ def format_info(parameter, value, colors):
 def fetch_info():
 
     os_name = LinuxDistribution()._os_release_info["name"]
-    os_id = LinuxDistribution().id()
+    os_id = "ubuntu"
 
     try:
         decor = dd.distros[os_id]
