@@ -13,8 +13,6 @@ from time import sleep
 
 from distro import LinuxDistribution
 
-from GPUtil import getGPUs
-
 def format_info(parameter, value, colors):
     pcolor, vcolor, bold, fgreset, boldreset = (
         colors[0],
