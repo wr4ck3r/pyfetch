@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import psutil
+import os
 
 from modules import distro_decorations as dd
 
@@ -8,8 +9,6 @@ from datetime import timedelta
 from datetime import datetime
 
 from screeninfo import get_monitors
-
-from time import sleep
 
 from distro import LinuxDistribution
 
@@ -28,8 +27,10 @@ def format_info(parameter, value, colors):
 
 def fetch_info():
 
-    os_name = LinuxDistribution()._os_release_info["name"]
-    os_id = "ubuntu"
+    distro = LinuxDistribution()
+
+    os_name = distro._os_release_info["name"]
+    os_id = distro.id()
 
     try:
         decor = dd.distros[os_id]
@@ -49,12 +50,15 @@ def fetch_info():
     else:
         resolutions = f"{monitors[0].width}x{monitors[0].height}   "
 
+    uname = os.uname()
+
     parameters = {
         "CPU": f"{psutil.cpu_percent(0.1)}% [{psutil.cpu_count()}] {round(psutil.cpu_freq().max / 1000, 1)} GHz",
         "RAM": f"{round(psutil.virtual_memory().used / 8**10, 1)}G / {round(psutil.virtual_memory().total / 8**10, 1)}G ({round(psutil.virtual_memory().total / 8**10)}G)",
         "Resolution": resolutions[:-3],
         "Uptime": f"{round(uptime.seconds / 60**2, 1)} hr",
         "OS": os_name,
+        "Kernel": f'{uname[2]} [{uname[4]}]'
     }
 
     pcolor, vcolor, logo_color = (

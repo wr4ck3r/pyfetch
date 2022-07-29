@@ -5,12 +5,12 @@ colors = {"fr": fg.rs, "br": bg.rs, "eb": ef.bold, "rb": rs.bold_dim}
 
 distros = {
     "arch": {
-        "logo": r"""    _
-   / \   CPU
-  /   \   RAM
- /  _  \   Resolution
-/_-' '-_\   Uptime
-      OS
+        "logo": r"""    _  CPU
+   / \  RAM
+  /   \  Resolution
+ /  _  \  Uptime
+/_-' '-_\  OS
+      Kernel
 """,
         "colors": [
             fg(96, 154, 247), #pcolor
@@ -24,7 +24,7 @@ distros = {
 \\   0   \\  RAM
  \\       )  Resolution
  /     _/  Uptime
- \\___-""",
+ \\___-  Kernel""",
         "colors": [
             fg(159, 132, 240),
             fg(200, 190, 230),
@@ -36,7 +36,8 @@ distros = {
  _/ ;-._\  CPU
 (_)(   ) )  RAM
   \ ;-'_/  Resolution
-   `--(_)  Uptime""",
+   `--(_)  Uptime
+ Kernel""",
         "colors": (
                 fg(242, 109, 63),
                 fg(230, 180, 163),
@@ -44,28 +45,27 @@ distros = {
             )
     },
     "linuxmint": {
-        "logo": r"""▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄   OS
-▀▀█  █        █   CPU
-  █  █  █  █  █   RAM
-  █  █  █  █  █   Resolution
-  █  ▀▀▀▀▀▀▀  █   Uptime
-  ▀▀▀▀▀▀▀▀▀▀▀▀▀
+        "logo": r"""▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄  OS
+▀▀█  █        █  CPU
+  █  █  █  █  █  RAM
+  █  █  █  █  █  Resolution
+  █  ▀▀▀▀▀▀▀  █  Uptime
+  ▀▀▀▀▀▀▀▀▀▀▀▀▀  Kernel
 """,
         "colors": (
             fg(91, 237, 83),
             fg(222, 242, 220),
             fg(110, 230, 103),
         ),
-    },
+           },
     "other": {
-        "logo": r"""   .--.
-   |o_o |
-   |:_/ |  CPU
-  //   \ \  RAM
- (|     | )  Resolution
-/'\_   _/`\  Uptime
-\___)=(___/
-  OS""",
+        "logo": r"""    .--.  CPU
+   |o_o |  RAM
+   |:_/ |  Resolution
+  //   \ \  Uptime
+ (|     | )  Kernel
+/'\_   _/`\  OS
+\___)=(___/""",
 "colors": (
             fg(204, 241, 255),
             fg(247, 251, 252),
